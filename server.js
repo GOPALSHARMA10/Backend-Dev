@@ -1,6 +1,6 @@
 console.log("Node.js Backend Started");  // Prints a message to the console indicating the backend has started
 
-let name="gopal gujjar";  //Declares a variable 'name' and stores a string value
+let name="gopal sharma";  //Declares a variable 'name' and stores a string value
 let age=20;        //Declares a variable 'age' and stores a numeric value
 const country="India";  //Declares a constant 'country' and stores a string value
 let isStudent=true;   //Declare a variable 'isStudent' and store a boolean value (true/false)
