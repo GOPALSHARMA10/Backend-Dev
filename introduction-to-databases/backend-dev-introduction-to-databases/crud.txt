@@ -1,0 +1,98 @@
+//PRACTICE EXERCISES//
+
+EX-1:>
+1. Add new student:>
+    db.student.insertOne({name:"Nitin Kumar",
+    email:"nitin@gmail.com",
+    gpa:3.8,
+    city:"Kanpur",
+    courses:["TOC","CSE","DAA"]})
+2. View all students:>
+    db.student.find()
+3. Find student by email:>
+    db.student.find({email:"nitin@gmail.com"})
+4. Update student GPA:>
+    db.student.updateOne({name:"Nitin Kumar"},{$set:{gpa:3.2}})
+5. Delete student:>
+    db.student.deleteOne({name:"Nitin Kumar})
+
+
+EX-2:>
+1. Find all students with GPA between 3.0 and 3.5:>
+    db.student.find({gpa:{$gt:3.0,$lt:3.5}})
+2. Find students enrolled in more than 5 courses:>
+    db.student.find({$expr:{$gt:[{$size:"$courses"},5]}})
+3. Get top 10 students by GPA:>
+    db.student.find().sort({gpa:-1}).limit(10)
+4. Count students by city:>
+    db.student.aggregate([{$group:{_id:"$city",count:{$sum:1}}}])
+
+
+EX-3:>
+1. Course with prerequisites:>
+    {
+        _id:ObjectId(),
+        name:"FULL STACK",
+        code:"CS301",
+        prerequisites:["CS101","CS102"]
+    }
+2. Professor with multiple departments:>
+    {
+        _id:ObjectId(),
+        name:"Satya Prakash Singh",
+        departments:["CSE","IT"]
+    }
+3. Grade with student and course references:>
+    {
+        _id:ObjectId(),
+        studentId:ObjectId("student_id"),
+        courseId:ObjectId("course_id"),
+        grade:"A"
+    }
+
+
+EX-4:>
+1.Calculate average GPA by department:>
+    db.student.aggregate([{
+        $group:{
+            _id:"$department",
+            avgGPA:{$avg:"$gpa"}
+        }
+    }])
+2.Find most popular courses:>
+    db.student.aggregate([{$group:{_id:"$course",totalStudent:{$sum:1}},{$sort:{totalStudent:-1}}}])
+3.Generate student performance report:>
+    db.student.aggregate([{$group:{
+        _id:"$name",avgScore:{$avg:"$marks.score"},totalSubject:{3}
+    }}])
+
+
+
+//ASSESSMENT ANSWER//
+
+1. What are the advantages of using Mongoose over the native MongoDB driver?
+ANS:>advantages:-   
+    -Provides schema-based structure
+    -Supports data validation
+    -Has middleware (hooks) support
+    -Simplifies queries
+    -Supports relationships using population
+
+2. Explain the difference between findOneAndUpdate() and updateOne().
+ans:>
+    updateOne():-Updates document, returns status only
+    findOneAndUpdate():-Updates and returns document
+
+3. What is the purpose of middleware in Mongoose?
+ans:> purpose of middlewarein mongoose:-
+    -Functions executed before/after DB operations
+    -Used for validation,logging.
+
+4. How do you implement pagination in Mongoose?
+ans:>pagination in mongoose:-
+    -Done using skip() and limit().
+    -Helps in fetching data in small chunks.
+5. When should you use embedding vs referencing in MongoDB schema design?
+ans:>
+    -Embedding: Data stored in same document (fast, simple)
+    -Referencing: Data stored in separate collections (scalable)

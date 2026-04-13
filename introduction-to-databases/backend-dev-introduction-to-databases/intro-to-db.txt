@@ -1,0 +1,81 @@
+//PRACTICE EXERCISES//
+
+EX:-1:>
+1.Online banking system:>
+    -Transaction is accuarate.
+    -ACID properties used.
+So SQL is best.
+2.Social media Platform:>
+    -large system.
+    -Unstructed data.
+SO NoSQL is best.
+3.Real time chat application:>
+    -fast response.
+    -real time messaging.
+So NoSQL is best.
+4.Hospital patient records:>
+    -data is sensitive.
+    -proper relationship
+So SQL is best.
+5.IOT sensor data:>
+    -continuous data will generate.
+    -data is huge.
+So NoSQL is best.
+
+
+EX:-2:>
+(CAP = Consistency, Availability, Partition Tolerance)
+1.Stock Trading Platform:>
+    -data must be correct.
+so CP.
+2.CDN(Content Delivery Network):>
+    -website and content always be available.
+So AP.
+3.Airline Booking System:>
+    -No double booking.
+so CP.
+4.Video Streaming Service:>
+    -videos always play.
+So AP.
+
+
+EX:-3:>
+Create DB.
+    use libray
+1.add new book:>
+    db.book.insertOne({title:"To Kill a Mockingbird",
+    author:"Harper Lee",available:true})
+2.find book by author:>
+    db.book.find({author:"Harper Lee"})
+3.update book Availability:>
+    db.book.updateOne({title:"To Kill a Mockingbird"},{$set:{available:false}})
+4.track borrowed book:>
+    db.borrowed.insertOne({id:"001",book:"To Kill a Mockingbird",
+    date:new Date()})
+
+
+EX:-4:>
+{
+  orderId: NumberInt(12345),
+  orderDate: ISODate("2024-01-15"),
+  totalAmount: NumberDecimal("99.99"),
+  items: ["item1", "item2"]
+}
+
+//ASSESSMENT ANSWER//
+1.SQL vs NoSQL:>
+    SQL-fixed schema, tables
+    NoSQL-flexible schema, JSON-like data.
+2.CAP Theorem:>
+    3 properties: Consistency, Availability, Partition Tolerance
+    Cannot achieve all 3 at the same time
+3.When to use MongoDB:>
+    Dynamic or changing data
+    Need fast scaling
+    Real-time applications
+4.Why MongoDB uses BSON:>
+    Faster than JSON
+    Supports more data types (Date, Binary, etc.)
+    Efficient storage
+5.MongoDB Query:>
+    db.students.find({gpa:{$gt:3.5},course:"CS101"})
