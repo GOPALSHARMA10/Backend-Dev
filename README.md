@@ -1,6 +1,6 @@
 THIS IS OUR PROJECT DETAILS :-
 
-Project Deployment Link :- https://project-olms.vercel.app/ 
+Project Deployment Link :- https://learnifyapp-production.up.railway.app/
 
 LMS FRONTEND REPOSITORY LINK :- https://github.com/DhruvJain2005/LMS-PROJECT-FRONTEND
 
